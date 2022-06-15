@@ -1,3 +1,125 @@
 * {
 	font-family: "Cutive Mono", monospace;
+	text-decoration: none;
+	list-style: none;
+	color: #000;
+	text-align: center;
 }
+
+body {
+	background: #c7c7c7;
+}
+
+h1 {
+	font-size: 22px;
+}
+
+.hr1 {
+	height: 10px;
+	width: 90%;
+	border: none;
+	border-top: 2px solid black;
+	border-bottom: 3px solid black;
+}
+
+.newsPage {
+	width: 70%;
+	margin: auto;
+	background: #ebe9e9;
+	box-shadow: 8px 8px 20px 1px rgba(90, 90, 90, 0.788);
+	.newsWrapper {
+		width: 90%;
+		margin: auto;
+		.newsList {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			margin-right: 35px;
+
+			/* DISPALY SETTING ALTERNATIVES:
+			*  display: grid;
+			*  grid-template-columns: repeat(3, 1fr);
+			*  width: 90%;
+			*/
+
+			/* DISPALY SETTING ALTERNATIVES:
+			*  display: flex;
+			*  justify-content: center;
+			*  flex-wrap: wrap;
+			*/
+			li:first-child {
+				flex: 1 1 100%; //------------ Three values: flex-grow | flex-shrink | flex-basis
+				//--------------------------- Flex-grow and shrink set to 1 so the flex item can shrink or grow from flex-basis
+				.imgWrapper {
+					border: solid 1px black;
+					width: 100%;
+					height: 50%; //play with it for best result
+				}
+				img {
+					padding-top: 2px;
+					aspect-ratio: auto; //prevents imgs from changing sizes
+					width: 98%; //play with it for best result
+					height: 97%; //play with it for best result
+					object-fit: cover;
+				}
+			}
+
+			li {
+				border: solid 1px black;
+				display: flex;
+				flex-direction: column; //--- Make cols flexible to auto push button at the col bottom
+				flex: 1 1 33%; //------------ Three values: flex-grow | flex-shrink | flex-basis
+				//--------------------------- Flex-grow and shrink set to 1 so the flex item can shrink or grow from flex-basis
+				align-items: center;
+				.imgWrapper {
+					border: solid 1px black;
+					width: 100%;
+					height: 33%; //play with it for best result
+				}
+				img {
+					padding-top: 2px;
+					aspect-ratio: 1/1; //prevents imgs from changing sizes
+					width: 97%; //play with it for best result
+					height: 97%; //play with it for best result
+					object-fit: cover;
+				}
+
+				.label,
+				h1 {
+					width: 90%;
+					word-wrap: break-word;
+					white-space: normal;
+				}
+				.read {
+					margin-top: auto; //**** Margin-top auto pushes button to bottom
+				}
+			}
+		}
+	}
+}
+
+/*
+.newsPage {
+	width: 60%;
+	margin: auto;
+	background: #ebe9e9;
+	box-shadow: 8px 8px 20px 1px rgba(90, 90, 90, 0.788);
+	.newsList {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		li:first-child {
+			grid-column: 1 / span 3;
+		}
+		a {
+			.imgWrapper {
+				img {
+					object-fit: cover;
+					width: 90%;
+					line-height: 30%;
+				}
+			}
+		}
+	}
+}
+
+*/
