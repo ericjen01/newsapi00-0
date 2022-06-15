@@ -1,0 +1,85 @@
+---------------------------- Languages/Tools Used: -----------------------------------------------------------------------------------
+  - JavaScript
+  - Node.js             https://nodejs.org/en/                  To check if nodeJS has been installed type in "node -v"
+  - npm package manager https://www.npmjs.com/                  Default package manager for the JavaScript runtime environment Node.js
+  - react               https://www.npmjs.com/package/react     Requires package.json file initiated
+  - cheerior            https://www.npmjs.com/package/cheerio     \\
+  - express             https://www.npmjs.com/package/express     \\
+  - axios               https://www.npmjs.com/package/axios       \\
+  - nodemon             https://www.npmjs.com/package/nodemon     \\
+  - request             https://www.npmjs.com/package/request     \\
+  - Heroku              https://dashboard.heroku.com/apps <-- installation instruction
+
+---------------------------- Procedure: ----------------------------------------------------------------------------------------------
+  - To check if nodeJS has been installed type in "node -v"
+  - Node.js can be installed either by entering "nvm install v0.10.32" (or whatever version required) or go to https://nodejs.org/en/
+  - Initiate the package.json file by typing in "npm init". Answer all propted questions to complete init
+  - Install react package by typing "npm i react"
+  - Install cheerior package by typing "npm i cheerio"
+  - Install express by typing "npm i express"
+  - Install axios "npm i axios"
+  - Install nodemon "npm i nodemon"
+  - Install request "npm i request"
+  - Open package.json and in the "scripts: {}" add:  	
+        "scripts": {
+		      "start": "node index.js",
+		      "start:dev": "nodemon index.js"
+	      }
+  - Use "npm run start" to check if the backend is working on PORT 7999
+  - Use "nodemon" to run nodemon
+  - Use "process.env.PORT || 7999" instead of "const PORT = 7999" to ensure using environment variable PORT or 7900 if needed
+  - Go to Heroku site https://id.heroku.com/login and create a new app
+      $ heroku login
+
+      $ heroku git:clone -a nodejsapipets 
+      $ cd nodejsapipets
+
+      $ git add .
+      $ git commit -am "make it better"
+      $ git push heroku master
+      
+---------------------------- Remarks: -----------------------------------------------------------------------------------------------
+  - "npm init" comes up with a packages.json file so pkgs or modules on www.npmjs.com can be added
+  - cheerior retrieves/parses HTML pages via Cheerio Node.js library & allows scraping pages that dnot rely on client-side JavaScript
+  - express = back-end framework for nodeJS. To be installed to listen to parse and listen out to our port
+  - axios is a promise-based HTTP client for the browser and node.js which can GET POST PULL and DELETE data
+  - nodemon = automatically restarting the node application when file changes in the directory are detected
+
+
+---------------------------- Issue, Solution & Tips : -----------------------------------------------------------------------------------
+  - Can't extract the exact element via cheerio (img, url, title etc)
+    - use console.log to study and extract each element's attributes/text value
+
+  - Access to fetch from origin has been blocked by CORS policy: No 'Access-Control-Allow-Origin'
+    - see https://medium.com/@dtkatz/3-ways-to-fix-the-cors-error-and-how-access-control-allow-origin-works-d97d55946d9
+    - build your own proxy
+        const request = require('request');
+        app.use((req, res, next) => {
+          res.header('Access-Control-Allow-Origin', '*');
+          next();
+        });
+        app.get('/directory', (req, res) => {
+          request(
+          {}
+            res.json(JSON.parse(body));
+          )
+        });
+
+  - Cannot find module 'request'
+    install request package -> "npm i request"
+
+  - Error: options.uri is a required argument
+  
+  - Column items don't line up at the bottom
+    check out https://flexbox.ninja/demos/same-height-columns/
+                https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis
+    - Set the cotainer to flex -> direction column -> flex: 1 1 ratio%; (play with the ratio)
+    - Set the bottom content with margin-top: auto to push it to the bottom
+
+  - Keep images as uniform as possible:
+    create a div to contain image and play with xx% height and xx% width
+    set image to:
+    	aspect-ratio: 1/1; <-- prevents imgs from changing sizes
+			width: 97%;        <-- play with it for best result
+			height: 97%;       <-- play with it for best result
+			object-fit: cover;
